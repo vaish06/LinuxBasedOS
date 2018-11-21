@@ -1,0 +1,23 @@
+boot.o: boot.S multiboot.h x86_desc.h types.h
+system_calls_wrapper.o: system_calls_wrapper.S
+x86_desc.o: x86_desc.S x86_desc.h types.h
+filesystem.o: filesystem.c filesystem.h lib.h types.h system_calls.h
+i8259.o: i8259.c i8259.h types.h lib.h
+idt.o: idt.c idt.h x86_desc.h types.h lib.h rtc.h keyboard.h i8259.h \
+  terminal.h system_calls_wrapper.h system_calls.h schedule.h
+kernel.o: kernel.c types.h multiboot.h x86_desc.h lib.h i8259.h debug.h \
+  tests.h rtc.h paging.h keyboard.h terminal.h system_calls.h \
+  system_calls_wrapper.h idt.h filesystem.h pit.h schedule.h
+keyboard.o: keyboard.c types.h keyboard.h i8259.h lib.h terminal.h
+lib.o: lib.c lib.h types.h terminal.h paging.h
+paging.o: paging.c paging.h types.h lib.h
+pit.o: pit.c pit.h types.h lib.h i8259.h
+rtc.o: rtc.c rtc.h types.h i8259.h lib.h
+schedule.o: schedule.c types.h terminal.h system_calls.h lib.h i8259.h \
+  pit.h paging.h schedule.h x86_desc.h
+system_calls.o: system_calls.c types.h paging.h lib.h idt.h rtc.h \
+  terminal.h keyboard.h i8259.h system_calls_wrapper.h system_calls.h \
+  x86_desc.h filesystem.h schedule.h
+terminal.o: terminal.c terminal.h types.h keyboard.h i8259.h lib.h
+tests.o: tests.c tests.h x86_desc.h types.h lib.h idt.h rtc.h \
+  filesystem.h system_calls.h

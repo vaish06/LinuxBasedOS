@@ -1,0 +1,22 @@
+issue - buffer not populating properly
+why - flags not being set
+resolution - resolved
+
+issue - halt crashing system
+why - not saving registers on RTC and keyboard interrupt handlers
+resolution - resolved
+
+issue - backspace can sometimes go back up on to the previous line
+why - there is an issue with the limitations on the buffer
+resolution - not yet resolved
+
+issue - text can be put on screen even when the buffer is full
+why - not properly checking for full buffer
+resolution - not yet resolved
+
+issue - terminal screens not copying memory properly
+why - not understanding math function required yet
+resolution - not yet resolved
+
+issue - scheduling giving page fault
+why - not sure yet
